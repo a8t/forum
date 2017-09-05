@@ -1,0 +1,21 @@
+
+<h1>Listing articles</h1>
+<div class="box">
+  <%= link_to 'New article', new_article_path %>
+</div>
+
+
+<% @articles.each do |each_article| %>
+  <div class="box">
+    <p>
+      <strong>Title:</strong>
+      <%= each_article.title %>
+    </p>
+
+    <p>
+      <strong>Text:</strong>
+      <%= each_article.text %>
+    </p>
+    <%= link_to 'Show', article_path(each_article) %>
+  </div>
+<% end %>
