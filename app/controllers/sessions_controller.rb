@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path, notice: "Logged in!"
+    else
+      flash.now[:alert] = 'Username or password incorrect!'
+      render "new"
     end
+
   end
 
   def destroy

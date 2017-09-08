@@ -12,6 +12,7 @@
     <header>
       <nav>
         <ul>
+          <li class="home_button"><%= link_to "Home",root_path %></li>
           <% if current_user %>
             <li>Welcome back, <%= current_user.email %>!</li>
             <li><%= link_to "Log out", session_path, method: :delete %></li>
@@ -26,9 +27,13 @@
     <main>
 
       <% if flash[:notice]  %>
-        <%= flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
       <% elsif flash[:alert]  %>
-        <%= flash[:alert] %>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
       <% end %>
 
       <%= yield %>
