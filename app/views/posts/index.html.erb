@@ -1,0 +1,13 @@
+
+<h1>Listing posts</h1>
+<div class="box">
+  <%= link_to 'New post', new_post_path %>
+</div>
+
+
+<% @posts.each do |each_post| %>
+  <div class="box">
+    <%= render "display", post: each_post %>
+    <%= link_to 'Show', post_path(each_post) %>
+  </div>
+<% end %>

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resource :users
+  resource :session
+
+  resource :user
 
   get 'welcome/index'
 
   root 'welcome#index'
 
-  resources :articles do
+  resources :posts do
     resources :comments
   end
 
