@@ -25,6 +25,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if current_user != @post.user
+      flash[:alert] = "You don't have permission to do that!"
+      redirect_to @post
+    end
+
   end
 
   def update

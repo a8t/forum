@@ -9,7 +9,6 @@
 <% if current_user %>
   <h2>Add a comment:</h2>
   <%= render 'comments/form' %>
-
   <br>
 <% else %>
   <h2>Log in to make a comment </h2>
@@ -21,7 +20,5 @@
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
 <% end %>
-
-
 
 <%= link_to 'Back to forum', posts_path %>
