@@ -15,9 +15,13 @@
   <h2>Log in to make a comment </h2>
 <% end %>
 
-<%= link_to 'Edit post', edit_post_path %>
-<%= link_to 'Delete post', post_path(@post),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+<% if current_user == @post.user %>
+  <%= link_to 'Edit post', edit_post_path %>
+  <%= link_to 'Delete post', post_path(@post),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+<% end %>
 
-<%= link_to 'Return', posts_path %>
+
+
+<%= link_to 'Back to forum', posts_path %>
